@@ -1,8 +1,8 @@
 /* SEZIONE: Palette e tipografia */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap');
-:root { color-scheme: light; --bg:#F4FAFF; --ink:#10345C; --blue:#168ED0; --line:#B6D4EB; --yellow:#FFD43B; }
+:root { color-scheme: light; --bg:#FFFFFF; --ink:#10345C; --blue:#168ED0; --line:#B6D4EB; --yellow:#FFD43B; }
 html, body, .stApp, [data-testid="stAppViewContainer"] { background:var(--bg); color:var(--ink); font-family:'DM Sans',sans-serif; }
-.stApp { background:linear-gradient(155deg,#F4FAFF 0%,#FFFFFF 70%,#FFFDF3 100%); }
+.stApp { background:#FFFFFF!important; }
 [data-testid="stHeader"] { background:transparent; }
 [data-testid="stMainBlockContainer"] { max-width:1500px; padding-top:1.2rem; }
 h1,h2,h3,h4 { color:#082E5A!important; font-family:'Outfit',sans-serif!important; letter-spacing:-.025em; }
@@ -123,3 +123,24 @@ div.stButton > button:focus-visible, div.stDownloadButton > button:focus-visible
 .bio-tags span { background:#E9F5FF; border:1px solid #D3E8FA; color:#15598E; border-radius:999px; padding:7px 12px; font-size:12px; font-weight:700; }
 .bio-signature { margin-top:20px; font-size:13px; color:#28669A; font-weight:800; }
 @media(max-width:650px) { .bio-hero { flex-direction:column; align-items:flex-start; padding:22px; gap:20px; } .bio-portrait { width:130px; height:130px; } .bio-content,.bio-project { padding:21px; } }
+
+/* SEZIONE: Compatibilita tema scuro e dispositivi mobili */
+:root, html, body, .stApp, [data-testid="stAppViewContainer"],
+[data-testid="stMain"], [data-testid="stMainBlockContainer"] {
+  color-scheme: light!important;
+  background-color:#FFFFFF!important;
+}
+.stApp, [data-testid="stAppViewContainer"] { color:var(--ink)!important; }
+.stApp [data-testid="stMarkdownContainer"] p,
+.stApp [data-testid="stMarkdownContainer"] li,
+.stApp [data-testid="stCaptionContainer"],
+.stApp [data-testid="stMetricLabel"],
+.stApp [data-testid="stMetricValue"] { color:var(--ink)!important; }
+.stApp [data-baseweb="select"] svg,
+.stApp [data-baseweb="input"] svg,
+.stApp [data-baseweb="calendar"] svg { fill:var(--ink)!important; color:var(--ink)!important; }
+@media (prefers-color-scheme: dark) {
+  :root { color-scheme:light!important; }
+  html,body,.stApp,[data-testid="stAppViewContainer"],
+  [data-testid="stMain"],[data-testid="stMainBlockContainer"] { background:#FFFFFF!important; color:var(--ink)!important; }
+}
