@@ -1,0 +1,11 @@
+# SEZIONE: Tema chiaro Break&Go
+[theme]
+base = "light"
+primaryColor = "#168ED0"
+backgroundColor = "#F4FAFF"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#10345C"
+font = "sans serif"
+
+[server]
+headless = true
